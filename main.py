@@ -1,16 +1,24 @@
-# This is a sample Python script.
+from urllib.request import urlopen, Request
+from fake_user_agent import user_agent
+from urllib.parse import quote
+from urllib.parse import urlencode
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+args = input('Please input worlds you want search.')
+# 多个参数用这种方法拼接url
+parms = {
+    'wd': args,
+    'ie': 'utf_8'
+}
+# 单个参数直接转化代码
+# quote(args)
+# user_agent = user_agent('chrome')
+# headers = {
+#     'User-Agent': user_agent
+# }
+url = f'http://www.baidu.com/s?{urlencode(parms)}'
+print(url)
+#
+# req = Request(url,headers=headers)
+# response = urlopen(req)
+# print(response.read().decode())
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
